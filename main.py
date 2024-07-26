@@ -5,7 +5,7 @@ from selenium.common.exceptions import StaleElementReferenceException
 import time
 
 # Path to your ChromeDriver
-chrome_driver_path = "D:/Chrome/chromedriver.exe"
+chrome_driver_path = "Your Chrome Driver Path"
 service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=service)
 
@@ -18,10 +18,12 @@ time.sleep(5)
 # Get the cookie to click on
 cookie = driver.find_element(By.ID, "bigCookie")
 
+
 # Function to get upgrade item ids
 def get_item_ids():
     items = driver.find_elements(By.CSS_SELECTOR, "#store div")
     return [item.get_attribute("id") for item in items if item.get_attribute("id")]
+
 
 # Get initial upgrade item ids
 item_ids = get_item_ids()
